@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\ProjectRepositoryInterface; //se requiere o falla el register
+use App\Repositories\EloquentProjectRepository; //se requiere o falla el register
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -15,7 +17,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             ProjectRepositoryInterface::class,
-            EloquentRepositoryInterface::class,
+            EloquentProjectRepository::class,
         );
     }
 
