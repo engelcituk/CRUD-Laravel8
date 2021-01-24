@@ -37,7 +37,7 @@ abstract class CrudController extends Controller
      * p. ej.: Proyecto eliminado
      * @var string 
      */
-    protected string $messageDetroy;
+    protected string $messageDestroy;
 
 
     abstract protected function formCreateMetaData(): array;
@@ -80,11 +80,11 @@ abstract class CrudController extends Controller
         return redirect()->route( $this->resource. ".index")->with("success", __($this->messageUpdate) );
     }
 
-    public function delete(int $id): RedirectResponse
+    public function destroy(int $id): RedirectResponse
     {
         app( $this->formRequest );
         $this->repository->delete($id);
 
-        return redirect()->route( $this->resource. ".index")->with("success", __($this->messageDetroy) );
+        return redirect()->route( $this->resource. ".index")->with("success", __($this->messageDestroy) );
     }
 }
